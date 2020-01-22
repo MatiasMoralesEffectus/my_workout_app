@@ -23,6 +23,7 @@
                 <li><%= link_to "Sign in", new_user_session_path %></li>
               <% else %>
                 <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "My Lounge", user_exercises_path(current_user) %></li>
 
                 <div class="navbar-right signed-in-user">
                   <p class="navbar-text">
