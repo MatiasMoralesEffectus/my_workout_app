@@ -25,13 +25,7 @@ RSpec.feature "Creating Exercise" do
     expect(exercise.user_id).to eq(@john.id)
   end
 
-  scenario "with invalid inputs" do
-    visit "/"
-  
-    click_link "My Lounge"
-    click_link "New Workout"
-    expect(page).to have_link("Back")
-  
+  scenario "with invalid inputs" do  
     fill_in "Duration", with: ""
     fill_in "Workout details",  with: ""
     fill_in "Activity date",  with: ""
