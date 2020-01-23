@@ -4,7 +4,7 @@ RSpec.feature "Users signin" do
  
   before do
    
-    @john = User.create!(email: "john@example.com", password: "password")
+    @john = User.create!(email: "john@example.com", password: "password", first_name: "John", last_name: "Doe")
  
   end
  
