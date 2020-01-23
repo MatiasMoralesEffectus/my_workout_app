@@ -1,21 +1,21 @@
 $(document).ready(function() {
   $("#exercise_workout_date").datepicker({ dateFormat: 'yy-mm-dd' });
   
-  var regex = /\/users\/\d+\/exercises$/i;
+  var regex = /\/users\/\d+\/exercises$|\/friendships\/d+$/i;
+
   if($(location).attr('pathname').match(regex)) {
     drawChart();
   }
 });
+
 var drawChart = function() {
+
   var margin = { top: 100, right: 20, bottom: 100, left: 50 },
       width  = 600 - margin.left - margin.right,
       height = 450 - margin.top - margin.bottom;
+
   var JSONData = $("#chart").data("workouts");
- 
-  if (!JSONData) {
-    return;
-  }
- 
+
   var data = JSONData.slice()
   
   var parseTime = d3.timeParse("%Y-%m-%d");
