@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~>3.3.6' 
 gem 'devise'
 gem 'jquery-ui-rails', '5.0.5'
+gem 'd3-rails', '4.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
