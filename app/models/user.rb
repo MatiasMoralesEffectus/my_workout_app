@@ -36,4 +36,8 @@ class User < ApplicationRecord
     self == new_friend || friendships.map(&:friend).include?(new_friend)
   end
 
+  def current_friendship(friend)
+    friendships.where(friend: friend).first
+  end
+
 end
