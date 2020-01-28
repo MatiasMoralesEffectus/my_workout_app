@@ -2,17 +2,17 @@ require "rails_helper"
 
 RSpec.feature "Sending a message" do
   before do
-    @juan = User.create!(first_name: 'Juan', last_name: 'Doe', email: 'juan@example.com', password: 'password')
+    @john = User.create!(first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password')
     @sarah = User.create!(first_name: 'Sarah', last_name: 'Anderson', email: 'sarah@example.com', password: 'password')
     @henry = User.create!(first_name: 'Henry', last_name: 'Flynn', email: 'henry@example.com', password: 'password')
     
-    @room_name = @juan.first_name + '-' + @juan.last_name
-    @room = Room.create!(name: @room_name, user_id: @juan.id)
+    @room_name = @john.first_name + '-' + @john.last_name
+    @room = Room.create!(name: @room_name, user_id: @john.id)
     
-    login_as(@juan)
+    login_as(@john)
     
-    Friendship.create(user: @sarah, friend: @juan)
-    Friendship.create(user: @henry, friend: @juan)
+    Friendship.create(user: @sarah, friend: @john)
+    Friendship.create(user: @henry, friend: @john)
   end
   
   scenario "to followers shows in chatroom window" do
@@ -22,6 +22,7 @@ RSpec.feature "Sending a message" do
     expect(page).to have_content(@room_name)
     
     fill_in "message-field", with: "Hello"
+
     click_button "Post"
     
     expect(page).to have_content("Hello")
